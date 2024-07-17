@@ -11,6 +11,8 @@ public interface UserRepository {
 
     DataUser findById(int id);
 
+    DataUser findByPersonId(String personid);
+
     int deleteById(int id);
 
     List<DataUser> findAll();

@@ -39,6 +39,17 @@ public class JDBCUserRepository implements UserRepository {
     }
 
     @Override
+    public DataUser findByPersonId(String personid) {
+        try {
+            DataUser dataUser = jdbcTemplate.queryForObject("SELECT * FROM users WHERE personid=?",
+                    BeanPropertyRowMapper.newInstance(DataUser.class), personid);
+            return dataUser;
+        } catch (IncorrectResultSizeDataAccessException e) {
+            return null;
+        }
+    }
+
+    @Override
     public int deleteById(int id) {
         return jdbcTemplate.update("DELETE FROM users WHERE id=?", id);
     }
