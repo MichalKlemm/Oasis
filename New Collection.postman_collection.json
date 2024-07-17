@@ -1,0 +1,18 @@
+{
+	"info": {
+		"_postman_id": "b4fb8e1a-b23b-48e4-8fd7-dddb2d2d75ab",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33464412"
+	},
+	"item": [
+		{
+			"name": "Oaza",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
