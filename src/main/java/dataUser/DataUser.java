@@ -55,8 +55,8 @@ public class DataUser {
         return personId;
     }
 
-    public void setPersonId(String personId) {
-        this.personId = personId;
+    public void setPersonId(String personid) {
+        this.personId = personid;
     }
 
     public String getUuid() {
