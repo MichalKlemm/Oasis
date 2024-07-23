@@ -1,5 +1,3 @@
-// discord -> TheBauch
-
 package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +15,7 @@ import java.util.Scanner;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 
 public class MainController {
 
