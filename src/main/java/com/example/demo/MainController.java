@@ -59,23 +59,24 @@ public class MainController {
 
                 File dataFile = new File("C:\\Users\\Public\\IntelliJ\\Oasis\\dataPersonId.txt");
                 Scanner scanner = new Scanner(dataFile);
-
-                dataUser.setPersonId("");
+                boolean validPersonId = false;
 
                 while (scanner.hasNextLine()) {
                     String record = scanner.nextLine();
 
-                    DataUser du = userRepository.findByPersonId(record);
-                    if (du == null) {
-                        dataUser.setPersonId(record);
+                    if (dataUser.getPersonId().equals(record)) {
+                        validPersonId = true;
                         break;
                     }
 
                 }
 
-                if (dataUser.getPersonId() == "") {
+                if (!validPersonId) {
+                    return new ResponseEntity<>("Neplatné personID.", HttpStatus.NOT_FOUND);
+                }
 
-                    return new ResponseEntity<>("Neni k dispozici další personID.", HttpStatus.NOT_FOUND);
+                if (userRepository.findByPersonId(dataUser.getPersonId()) != null) {
+                    return new ResponseEntity<>("Toto personID je již použité.", HttpStatus.NOT_FOUND);
                 }
 
                 UUID uuid = UUID.randomUUID();
